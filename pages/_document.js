@@ -12,10 +12,10 @@ export default class MyDocument extends Document {
     return (
      <html>
        <Head>
-         <style>{`body { margin: 0 } /* custom! */`}</style>
          <link rel="stylesheet" href="static/styles.css"/>
+         <title>Sustav.pro</title>
        </Head>
-       <body className="custom_class">
+       <body className="main">
          {this.props.customValue}
          <Main />
          <NextScript />
