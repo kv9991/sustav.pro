@@ -7,14 +7,26 @@
     "start": "next start"
   },
   "dependencies": {
+    "bulma": "^0.5.1",
+    "express": "^4.15.4",
     "next": "latest",
     "next-redux-wrapper": "^1.0.0",
     "react": "^15.4.2",
-    "redux-devtools-extension": "^2.13.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.1.0"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "nodemon": "^1.11.0",
+    "sass-module-importer": "^1.4.0"
+  }
 }

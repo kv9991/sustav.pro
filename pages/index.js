@@ -1,37 +1,29 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
-import { initStore, startClock, addCount, serverRenderClock } from '../store'
+import { initStore } from '../store'
 import withRedux from 'next-redux-wrapper'
-import Page from '../components/Page'
+import HelloWorld from '../components/HelloWorld'
 
 class Counter extends React.Component {
   static getInitialProps ({ store, isServer }) {
-    store.dispatch(serverRenderClock(isServer))
-    store.dispatch(addCount())
-
     return { isServer }
   }
-
-  componentDidMount () {
-    this.timer = this.props.startClock()
-  }
-
-  componentWillUnmount () {
-    clearInterval(this.timer)
-  }
-
   render () {
     return (
-      <Page title='Index Page' linkTo='/other' />
+      <div className="container">
+        <div className="notification">
+          <p className="title is-3">Hello World</p>
+          <p className="subtitle is-5">Meet New Boilerplate</p>
+          <HelloWorld />
+        </div>
+      </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = state => {
   return {
-    addCount: bindActionCreators(addCount, dispatch),
-    startClock: bindActionCreators(startClock, dispatch)
+    test: state.test
   }
 }
 
-export default withRedux(initStore, null, mapDispatchToProps)(Counter)
+export default withRedux(initStore, mapStateToProps)(Counter)
