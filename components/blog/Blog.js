@@ -1,22 +1,25 @@
 import React from "react";
+import config from "../../config";
+import TimeAgo from "react-timeago";
 
-const Blog = () => {
+const Blog = ({ data }) => {
   return (
     <div className="card">
       <div className="card-image">
         <figure className="image is-4by3">
-          <img src="https://static.tumblr.com/65162db388baaea011ad9b04912c0f58/g8sdjce/XV7n96frd/tumblr_static_tumblr_static_blurbavck.jpg" alt="Placeholder image" />
+          <img src={config.api + data.image} alt={data.title} />
         </figure>
       </div>
       <div className="card-content">
         <a href="#" style={{ marginBottom: '10px', display: 'block' }}>
-          <h2 className="title is-4">John Smith</h2>
+          <h2 className="title is-4">{data.title}</h2>
         </a>
         <div className="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris.
+          {data.description}
           <br />
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          <time datetime="2016-1-1">
+            <TimeAgo data={data.created} />
+          </time>
         </div>
       </div>
     </div>
